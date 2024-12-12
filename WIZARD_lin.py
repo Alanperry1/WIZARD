@@ -12,7 +12,7 @@ def list_usb_drives():
 
         try:
             with open(removable_path, "r") as f:
-                if f.read().strip() == "1":  # '1' indicates removable
+                if f.read().strip() == "1": 
                     removable_drives.append(device_path)
         except FileNotFoundError:
             continue
@@ -22,13 +22,12 @@ def list_usb_drives():
 def overwrite_device(device_path):
     """Securely overwrites the selected USB device."""
     overwrite_patterns = [
-        b'\x00',  # Null bytes
-        b'\xFF',  # All 1s
-        os.urandom(512)  # Random data
+        b'\x00',  
+        b'\xFF', 
+        os.urandom(512) 
     ]
 
     try:
-        # Open the device as a raw binary file
         with open(device_path, 'r+b') as device:
             device.seek(0, os.SEEK_END)
             total_size = device.tell()  # Get the total size of the device
@@ -40,7 +39,7 @@ def overwrite_device(device_path):
                 for pattern in overwrite_patterns:
                     device.seek(0)  # Reset to the beginning of the device
                     while device.tell() < total_size:
-                        device.write(pattern * 1024)  # Write in 1KB chunks
+                        device.write(pattern * 1024) 
                     device.flush()
                     os.fsync(device.fileno())
                 print(f"Pass {pass_num + 1} completed for device: {device_path}")
