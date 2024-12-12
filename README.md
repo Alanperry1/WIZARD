@@ -1,4 +1,6 @@
-# WIZARD
+# WIZARD (Write, Inspect, Zero, Analyze, Rewrite, Delete)
+
+This reflects the key aspects of the script's functionality: overwriting, inspecting drives, zeroing data, analyzing device capacity, rewriting patterns, and deleting existing content. Let me know if you'd like to refine this further!
 
 A Python script to securely overwrite removable USB drives, ensuring complete data erasure. This script is designed for Linux systems and requires administrative privileges to run.
 
